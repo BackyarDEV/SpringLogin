@@ -17,8 +17,6 @@ public class MyUserAccounts implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	public static final String ROLE_USER = "ROLE_USER";
 	 
 	@Id  
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,19 +35,33 @@ public class MyUserAccounts implements Serializable{
 	private String last_name;
 	   
 	private String password;
-	 
-	public MyUserAccounts() {
+
+	private String role;
+	
+	private boolean enabled;
  
-	}
- 
-	public MyUserAccounts(String id, String email,String userName, String firstName, //
-           String lastName, String password,String role, String enabled) {
+	public MyUserAccounts(String id, String email,String user_name, String first_name, //
+           String last_name, String password,String roles, boolean enabled) {
        this.id = id;
        this.email = email;
-       this.user_name= userName;
-       this.first_name = firstName;
-       this.last_name = lastName;
+       this.user_name= user_name;
+       this.first_name = first_name;
+       this.last_name = last_name;
        this.password = password;
+       this.enabled = enabled;
+       this.role = roles;
+	}
+	
+	public MyUserAccounts() {
+		
+	}
+
+	public String getRoles() {
+		return role;
+	}
+
+	public void setRoles(String roles) {
+		this.role = roles;
 	}
 
 	public String getId() {
@@ -100,5 +112,12 @@ public class MyUserAccounts implements Serializable{
 		this.password = password;
 	}
 
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
 	
 }

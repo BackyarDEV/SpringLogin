@@ -120,7 +120,7 @@
 		</div>		
 	</div>
 	<script type="text/javascript">
-		$('.form').submit(function(s){
+		/*$('.form').submit(function(s){
 			s.preventDefault();
 			var form = $('.form');
 			var url = form.attr("action");
@@ -131,7 +131,6 @@
 				url: url,
 				data: form.serialize(),
 				success: function(data){
-					alert(data);
 					if (data){
 						location.replace('/');
 					} else {
@@ -139,7 +138,7 @@
 					}
 				}	
 			});
-		});
+		});*/
 		
 	</script>
 </body>
