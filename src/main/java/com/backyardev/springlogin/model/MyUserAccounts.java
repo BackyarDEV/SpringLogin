@@ -2,9 +2,11 @@ package com.backyardev.springlogin.model;
 
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Null;
 
 @Entity
 @Table(name = "user_accounts")
@@ -35,9 +37,9 @@ public class MyUserAccounts implements Serializable{
 	private String last_name;
 	   
 	private String password;
-
-	private String role;
 	
+	private String role;
+
 	private boolean enabled;
  
 	public MyUserAccounts(String id, String email,String user_name, String first_name, //

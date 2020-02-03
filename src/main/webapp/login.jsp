@@ -96,8 +96,8 @@
 					<div class="or-seperator"><i>or</i></div>
 			        <div class="form-group">
 			        	<div class="input-group">
-			                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-			                <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+			                <span class="input-group-addon"><i class="fa fa-at"></i></span>
+			                <input type="text" class="form-control" name="username" placeholder="Email" required="required">
 			            </div>
 			        </div>
 					<div class="form-group">
