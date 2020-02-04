@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.backyardev.springlogin.repository.UserAccountsRepository;
 
@@ -20,6 +21,7 @@ import com.backyardev.springlogin.repository.UserAccountsRepository;
 @SpringBootApplication
 @EnableJpaRepositories(basePackageClasses = UserAccountsRepository.class)
 @EnableJpaAuditing
+@EnableTransactionManagement
 public class SpringLoginApplication extends WebSecurityConfigurerAdapter {
 
 
@@ -40,6 +42,7 @@ public class SpringLoginApplication extends WebSecurityConfigurerAdapter {
 
 }
 
+@SuppressWarnings("deprecation")
 class ClientResources {
 
 	@NestedConfigurationProperty

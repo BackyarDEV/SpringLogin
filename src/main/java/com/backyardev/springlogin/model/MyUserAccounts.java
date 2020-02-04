@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Null;
 
 @Entity
 @Table(name = "user_accounts")
@@ -38,31 +37,35 @@ public class MyUserAccounts implements Serializable{
 	   
 	private String password;
 	
-	private String role;
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinTable(name="user_roles",
+    joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
+    inverseJoinColumns={@JoinColumn(name="role_id", referencedColumnName="role_id")})
+	private Roles role;
 
 	private boolean enabled;
  
 	public MyUserAccounts(String id, String email,String user_name, String first_name, //
-           String last_name, String password,String roles, boolean enabled) {
+           String last_name, Roles role, String password, boolean enabled) {
        this.id = id;
        this.email = email;
        this.user_name= user_name;
        this.first_name = first_name;
        this.last_name = last_name;
        this.password = password;
+       this.role = role;
        this.enabled = enabled;
-       this.role = roles;
 	}
 	
 	public MyUserAccounts() {
 		
 	}
 
-	public String getRoles() {
+	public Roles getRoles() {
 		return role;
 	}
 
-	public void setRoles(String roles) {
+	public void setRoles(Roles roles) {
 		this.role = roles;
 	}
 

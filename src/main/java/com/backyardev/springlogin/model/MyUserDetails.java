@@ -12,22 +12,35 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class MyUserDetails implements UserDetails {
 
 	private String user_name;
+	private String first_name;
+	private String last_name;
 	private String email;
 	private String password;
 	private boolean enabled;
 	private List<SimpleGrantedAuthority> authorities;
+	
 	
 	public MyUserDetails(MyUserAccounts userAccounts) {
 		this.user_name = userAccounts.getUser_name();
 		this.email = userAccounts.getEmail();
 		this.password = userAccounts.getPassword();
 		this.enabled = userAccounts.isEnabled();
-		this.authorities = Arrays.stream(userAccounts.getRoles().split(","))
+		this.first_name = userAccounts.getFirst_name();
+		this.last_name = userAccounts.getLast_name();
+		this.authorities = Arrays.stream(userAccounts.getRoles().getRole().split(","))
 						.map(SimpleGrantedAuthority::new)
 						.collect(Collectors.toList());
 	}
 
 	public MyUserDetails() {
+	}
+	
+	public String getFirst_name() {
+		return first_name;
+	}
+
+	public String getLast_name() {
+		return last_name;
 	}
 	
 	@Override

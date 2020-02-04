@@ -116,7 +116,6 @@
 			                <input type="password" id="conf" class="form-control" name="conf_password" placeholder="Confirm Password" required="required">
 			            </div>
 			        </div>
-	                <input type="hidden" class="form-control" value="ROLE_USER" name="role">
 	                <input type="hidden" class="form-control" value="true" name="enabled">
 			        <div class="form-group">
 			            <button type="submit" class="btn btn-success btn-block login-btn">Sign Up</button>

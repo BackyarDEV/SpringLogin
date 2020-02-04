@@ -44,18 +44,18 @@ public class MyController {
 		        System.out.println(details);
 			}
 		} catch(ClassCastException e) {
-			System.out.println("DB login");
-			String username;
+			String name;
 			String email;
-			Object principal1 = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-			if (principal1 instanceof MyUserDetails) {
-			   username = ((MyUserDetails)principal1).getUsername();
-			   email = ((MyUserDetails)principal1).getEmail();
+			Object princi = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			if (princi instanceof MyUserDetails) {
+				name = ((MyUserDetails)princi).getFirst_name() + " " + ((MyUserDetails)princi).getLast_name();
+			   	email = ((MyUserDetails)princi).getEmail();
 			} else {
-			  username = principal1.toString();
-			  email = "email@DBUser.com";
+				System.out.println("here now");
+				name = princi.toString();
+				email = "email@DBUser.com";
 			}
-			map.put("name", username);
+			map.put("name", name);
         	map.put("email", email);
         	map.put("propic", "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQoR3lxH768V306NfcbE7EcULhfnc8i1wv8Rb9tr2xBdyxDivZN");
 		}
