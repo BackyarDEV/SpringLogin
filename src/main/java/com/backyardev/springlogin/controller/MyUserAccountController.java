@@ -17,14 +17,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.backyardev.springlogin.exception.ResourceNotFoundException;
 import com.backyardev.springlogin.model.MyUserAccounts;
+import com.backyardev.springlogin.model.UserRoles;
 import com.backyardev.springlogin.repository.UserAccountsRepository;
+import com.backyardev.springlogin.repository.UserRolesRepository;
 
 @RestController
 @RequestMapping("/api")
 public class MyUserAccountController {
 
+	private static final Integer ROLE_USER = 1;
+	
 	@Autowired
 	UserAccountsRepository userAccountRepository;
+	
+	@Autowired
+	UserRolesRepository userRolesRepository;
 	
 	// Get all User Accounts
 	@GetMapping("/useraccounts")
@@ -36,7 +43,13 @@ public class MyUserAccountController {
 	@PostMapping(value = "/useraccounts")
 	public Boolean addUserAccount(@Valid MyUserAccounts myUserAccounts ) {
 		if(userAccountRepository.save(myUserAccounts) != null) {
-			return true;
+			System.out.println(myUserAccounts.getId());
+			UserRoles userRoles = new UserRoles();
+			userRoles.setUser_id(Integer.valueOf(myUserAccounts.getId()));
+			userRoles.setRole_id(ROLE_USER);
+			if(userRolesRepository.save(userRoles) != null) {
+				return true;
+			}
 		}
 		return false;
 	}

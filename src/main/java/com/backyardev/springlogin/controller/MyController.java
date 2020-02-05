@@ -1,4 +1,4 @@
-package com.backyardev.springlogin;
+package com.backyardev.springlogin.controller;
 
 import java.security.Principal;
 import java.util.LinkedHashMap;

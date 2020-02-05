@@ -120,8 +120,8 @@
 			        <div class="form-group">
 			            <button type="submit" class="btn btn-success btn-block login-btn">Sign Up</button>
 			        </div>
-			        
 			    </form>
+			    <div class="hint-text small">Already have an account? <a href="/login" class="text-success">Log in here!</a></div>
 			</div>
 		</div>		
 	</div>
@@ -145,9 +145,8 @@
 				url: url,
 				data: form.serialize(),
 				success: function(data){
-					alert(data);
 					if (data){
-						window.location.replace('/');
+						location.replace('/');
 					} else {
 						alert('There was a problem registering new account!');
 					}
