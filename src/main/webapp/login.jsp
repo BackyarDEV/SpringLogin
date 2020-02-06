@@ -14,10 +14,6 @@
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script> 
 	<style type="text/css">
-		.profile-container {
-			width: 640px;
-	    	margin: 30px auto;
-		}
 		.login-form {
 			width: 340px;
 	    	margin: 30px auto;
@@ -118,27 +114,5 @@
 			</div>
 		</div>		
 	</div>
-	<script type="text/javascript">
-		/*$('.form').submit(function(s){
-			s.preventDefault();
-			var form = $('.form');
-			var url = form.attr("action");
-			var method = form.attr("method");
-			
-			$.ajax({
-				type: method,
-				url: url,
-				data: form.serialize(),
-				success: function(data){
-					if (data){
-						location.replace('/');
-					} else {
-						alert('There was a problem signing in!');
-					}
-				}	
-			});
-		});*/
-		
-	</script>
 </body>
 </html>

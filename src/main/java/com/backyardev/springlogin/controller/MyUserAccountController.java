@@ -58,8 +58,11 @@ public class MyUserAccountController {
 	@GetMapping("/useraccounts/{id}")
 	public String getUserAccountById(@PathVariable(value = "id") String UserId) {
 		Optional<MyUserAccounts> data = userAccountRepository.findById(UserId);
-		MyUserAccounts myUserAccounts = data.get();
-		return myUserAccounts.getUser_name();
+		if(data != null) {
+			MyUserAccounts myUserAccounts = data.get();
+			return myUserAccounts.getUser_name();
+		}
+		return null;
 	}
 	
 	// Update a User Account

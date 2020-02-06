@@ -53,13 +53,13 @@ public class SecurityConfiguaration extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		// @formatter:off
 			http.authorizeRequests()
-			.antMatchers("/register**", "/login**", "/webjars/**", "/error**").permitAll()
-				.and().authorizeRequests().antMatchers(HttpMethod.POST, "/api/useraccounts**").permitAll()
-				.and().authorizeRequests().antMatchers(HttpMethod.POST, "/login**").permitAll()
-			.anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll()
-				.and().addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class);
-//				
-			http.csrf().disable();
+				.antMatchers("/register**", "/login**", "/webjars/**", "/error**").permitAll()
+					.and().authorizeRequests().antMatchers(HttpMethod.POST, "/api/useraccounts**").permitAll()
+					.and().authorizeRequests().antMatchers(HttpMethod.POST, "/login**").permitAll()
+					.and().authorizeRequests().antMatchers(HttpMethod.POST, "/linkaccount**").permitAll()
+				.anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll()
+					.and().addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class)
+				.csrf().disable();
 		// @formatter:on
 	}
 	

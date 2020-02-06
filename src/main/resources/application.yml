@@ -1,0 +1,37 @@
+debug: true
+github:
+    client:
+        accessTokenUri: https://github.com/login/oauth/access_token
+        clientAuthenticationScheme: form
+        clientId: 01927e6898df4656d06e
+        clientSecret: 3cca04e313fede3871785ff1c2b61f1883f71eb1
+        userAuthorizationUri: https://github.com/login/oauth/authorize
+    resource:
+        preferTokenInfo: false
+        userInfoUri: https://api.github.com/user
+google:
+    client:
+        accessTokenUri: https://www.googleapis.com/oauth2/v3/token
+        authenticationScheme: query
+        clientAuthenticationScheme: form
+        clientId: 968230829910-1khtsc40m1kns3c9f2badd0evts2p9gr.apps.googleusercontent.com
+        clientSecret: 44ph34yzlwkkQWrEK_0MpkHK
+        scope: profile email
+        tokenName: oauth_token
+        userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
+    resource:
+        preferTokenInfo: false
+        userInfoUri: https://www.googleapis.com/userinfo/v2/me
+spring:
+    datasource:
+        password: root
+        url: jdbc:mysql://localhost:3306/authexample?useSSL=false&serverTimezone=IST&useLegacyDatetimeCode=false
+        username: root
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    main:
+        allow-bean-definition-overriding: true

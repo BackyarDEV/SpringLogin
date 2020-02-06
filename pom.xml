@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.backyardev</groupId>
 	<artifactId>SpringLogin</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.3</version>
 	<packaging>war</packaging>
 	<name>SpringLogin</name>
 	<description>Social login using OAuth2</description>

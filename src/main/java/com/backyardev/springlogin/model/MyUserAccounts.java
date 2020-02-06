@@ -44,9 +44,19 @@ public class MyUserAccounts implements Serializable{
 	private Roles role;
 
 	private boolean enabled;
+	
+	private int oauth_link;
  
+	public int getOauth_link() {
+		return oauth_link;
+	}
+
+	public void setOauth_link(int oauth_link) {
+		this.oauth_link = oauth_link;
+	}
+
 	public MyUserAccounts(String id, String email,String user_name, String first_name, //
-           String last_name, Roles role, String password, boolean enabled) {
+           String last_name, Roles role, String password, boolean enabled, int oauth_link) {
        this.id = id;
        this.email = email;
        this.user_name= user_name;
@@ -55,6 +65,7 @@ public class MyUserAccounts implements Serializable{
        this.password = password;
        this.role = role;
        this.enabled = enabled;
+       this.oauth_link = oauth_link;
 	}
 	
 	public MyUserAccounts() {
